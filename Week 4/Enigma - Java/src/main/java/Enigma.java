@@ -54,14 +54,10 @@ public final class Enigma {
         String uppercase  = message;
         uppercase =uppercase.toUpperCase();
         
-        
         String removeAllNonAlpha = uppercase.replaceAll("[^a-zA-Z0-9 ''.]", "");
         
-
-
         String swapALetter = removeAllNonAlpha;
         swapALetter = swapALetter.replace(" ", "\u003F" );
-        
         
         String swapFullStop = swapALetter;
         swapFullStop = swapFullStop.replace(".", "\u20ac" );
@@ -79,9 +75,33 @@ public final class Enigma {
         
         Example input:  "TEST?MESSAGE€?WORKING€"
         Example output: "Test message. Working. */
+        String replaceFullStop = message;
+        replaceFullStop = replaceFullStop.replace("\u003F", " ");  
+             
+        String replaceEuro = replaceFullStop;
+        replaceEuro = replaceEuro.replace("\u20ac", ".");
+        
+        String toLower = replaceEuro;
+        toLower = toLower.toLowerCase();
 
-        return null;
-        // TO DO - add your implementation
+        String upperFirstChar = toLower;
+        upperFirstChar = upperFirstChar.substring(0, 1).toUpperCase() + upperFirstChar.substring(1);        
+        
+        boolean capitalize = true;
+        StringBuilder result = new StringBuilder(upperFirstChar.length());
+        for(int i = 0; i < upperFirstChar.length(); i++) {
+            char c = upperFirstChar.charAt(i);
+            if(c == '.') {
+                capitalize = true;
+            }
+            else if(capitalize && Character.isAlphabetic(c)) {
+                c = Character.toUpperCase(c);
+                capitalize = false;
+            }
+            result.append(c);
+        }
+        return result.toString();
+        
     }
 
     public static String caesarShift(String message, int shift, bool encode){

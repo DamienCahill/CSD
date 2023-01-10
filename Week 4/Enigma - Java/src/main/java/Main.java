@@ -29,7 +29,11 @@ public class Main {
 
 
         String newFormatInputMessage = "Test message. Working.";
-        String formatMessage = Enigma.formatInputMessage(newFormatInputMessage);
-        System.out.print("The format message is : " + formatMessage);
+        String formatInputMessage = Enigma.formatInputMessage(newFormatInputMessage);
+        System.out.print("\nThe format input message is : " + formatInputMessage);
+
+        String OutputMessage = "TEST?MESSAGE€?WORKING€";
+        String formatOutputMessage = Enigma.formatOutputMessage(OutputMessage);
+        System.out.print("\nThe format output message is : " + formatOutputMessage);
     }
 }
