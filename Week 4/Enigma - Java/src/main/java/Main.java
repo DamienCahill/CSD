@@ -26,5 +26,11 @@ public class Main {
         String decryptedMessage = Enigma.decode(encryptedMessage, 4, rotors);
 
         System.out.println("The decrypted message is: " + decryptedMessage);
+
+        
+        String OutputMessage = "TEST?MESSAGE€?WORKING€";
+        String formatOutputMessage = Enigma.formatOutputMessage(OutputMessage);
+        System.out.print("\nThe format output message is : " + formatOutputMessage);
+
     }
 }
