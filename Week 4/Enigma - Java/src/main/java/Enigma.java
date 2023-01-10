@@ -62,6 +62,32 @@ public final class Enigma {
         
         Example input:  "TEST?MESSAGE€?WORKING€"
         Example output: "Test message. Working. */
+        String replaceFullStop = message;
+        replaceFullStop = replaceFullStop.replace("\u003F", " ");  
+             
+        String replaceEuro = replaceFullStop;
+        replaceEuro = replaceEuro.replace("\u20ac", ".");
+        
+        String toLower = replaceEuro;
+        toLower = toLower.toLowerCase();
+
+        String upperFirstChar = toLower;
+        upperFirstChar = upperFirstChar.substring(0, 1).toUpperCase() + upperFirstChar.substring(1);        
+        
+        boolean capitalize = true;
+        StringBuilder result = new StringBuilder(upperFirstChar.length());
+        for(int i = 0; i < upperFirstChar.length(); i++) {
+            char c = upperFirstChar.charAt(i);
+            if(c == '.') {
+                capitalize = true;
+            }
+            else if(capitalize && Character.isAlphabetic(c)) {
+                c = Character.toUpperCase(c);
+                capitalize = false;
+            }
+            result.append(c);
+        }
+        return result.toString();
 
         // TO DO - add your implementation
     }
@@ -75,7 +101,7 @@ public final class Enigma {
         Example input:  "HELLO", -7, true 
         initial shift value = -7 for 'H' then -8 for 'E' and so forth results in:
         Example output: "AWCBD" */
-        
+        return null;
         // TO DO - add your implementation
     }
 
@@ -87,6 +113,7 @@ public final class Enigma {
         Example input message: "Apples", rotor: HFPMRIBTJWYDXQLGUKOVSNAZEC
         Example outout: "HGGDRO" */
         // TO DO - add your implementation
+        return null;
     }
 
     private static String reverseRotor(String message, String rotor){
@@ -94,5 +121,6 @@ public final class Enigma {
         with the corresponding character in the rotor as above. */
         
         // TO DO - add your implementation
+        return null;
     }
 }
