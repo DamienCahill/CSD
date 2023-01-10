@@ -2,6 +2,7 @@
 /// Description: Add a useful description of this file
 
 import java.util.List;
+import java.util.regex.*;
 
 public final class Enigma {
 
@@ -50,8 +51,20 @@ public final class Enigma {
         
         Example input:  "Test message. Working.
         Example output: "TEST?MESSAGE€?WORKING€" */
+        String uppercase  = message;
+        uppercase =uppercase.toUpperCase();
+        
+        String removeAllNonAlpha = uppercase.replaceAll("[^a-zA-Z0-9 ''.]", "");
+        
+        String swapALetter = removeAllNonAlpha;
+        swapALetter = swapALetter.replace(" ", "\u003F" );
+        
+        String swapFullStop = swapALetter;
+        swapFullStop = swapFullStop.replace(".", "\u20ac" );
+        
+        String finalString = swapFullStop; 
+        return finalString;
 
-        // TO DO - add your implementation
     }
 
     public static String formatOutputMessage(String message){
@@ -62,8 +75,7 @@ public final class Enigma {
         
         Example input:  "TEST?MESSAGE€?WORKING€"
         Example output: "Test message. Working. */
-
-        // TO DO - add your implementation
+        return null;        
     }
 
     public static String caesarShift(String message, int shift, bool encode){
@@ -76,6 +88,7 @@ public final class Enigma {
         initial shift value = -7 for 'H' then -8 for 'E' and so forth results in:
         Example output: "AWCBD" */
         
+        return null;
         // TO DO - add your implementation
     }
 
@@ -86,13 +99,14 @@ public final class Enigma {
                                                  
         Example input message: "Apples", rotor: HFPMRIBTJWYDXQLGUKOVSNAZEC
         Example outout: "HGGDRO" */
+        return null;
         // TO DO - add your implementation
     }
 
     private static String reverseRotor(String message, String rotor){
         /*The ReverseRotor method should substitue each [A..Z] character in the input string
         with the corresponding character in the rotor as above. */
-        
+        return null;
         // TO DO - add your implementation
     }
 }
