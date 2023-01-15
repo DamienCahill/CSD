@@ -52,6 +52,7 @@ public final class Enigma {
         Example output: "TEST?MESSAGE€?WORKING€" */
 
         // TO DO - add your implementation
+        return "";
     }
 
     public static String formatOutputMessage(String message){
@@ -64,9 +65,10 @@ public final class Enigma {
         Example output: "Test message. Working. */
 
         // TO DO - add your implementation
+        return "";
     }
 
-    public static String caesarShift(String message, int shift, bool encode){
+    public static String caesarShift(String message, int shift, boolean encode){
         /* The CaesarShift method should take a message and shift each character [A-Z] by the 
         value shift, incrementing or decrementing the value of shift by 1 or -1 with each 
         character shifted if given a positive shift value if encode = true otherwise shifted
@@ -77,9 +79,10 @@ public final class Enigma {
         Example output: "AWCBD" */
         
         // TO DO - add your implementation
+        return "";
     }
 
-    private static String applyRotor(String message, String rotor){
+    public static String applyRotor(String message, String rotor){
 
         /*The ApplyRotor method should substitue each [A..Z] character in the input string
         with the corresponding character in the rotor. 
@@ -87,6 +90,12 @@ public final class Enigma {
         Example input message: "Apples", rotor: HFPMRIBTJWYDXQLGUKOVSNAZEC
         Example outout: "HGGDRO" */
         // TO DO - add your implementation
+    	String res = "";
+    	for (int i=0;i<message.length();i++) {
+    		int val = message.toLowerCase().charAt(i) - 97;
+    		res = res + String.valueOf(rotor.charAt(val));
+    	}
+    	return res;
     }
 
     private static String reverseRotor(String message, String rotor){
@@ -94,5 +103,6 @@ public final class Enigma {
         with the corresponding character in the rotor as above. */
         
         // TO DO - add your implementation
+        return "";
     }
 }
